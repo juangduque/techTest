@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../types/todoTypes.js';
+import { ADD_TODO, ITEM_TODO_DONE } from '../types/todoTypes.js';
 
 const todoReducers = (state = [], action) => {
   switch( action.type ){
@@ -7,8 +7,13 @@ const todoReducers = (state = [], action) => {
         ...state, {
           todoID: action.id,
           text: action.text,
+          done: false
         }
       ]
+    case ITEM_TODO_DONE:      
+      const pseudoState = Object.assign({}, state)   
+      pseudoState[ action.id ].done = !pseudoState[ action.id ].done   
+      return state
     default:
       return state;
   }
