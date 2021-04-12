@@ -1,0 +1,63 @@
+Tenemos 4 fases por los que un componente pasa:
+A continuación se muestra en orden como React monta, actualiza o desmonta un componente
+
+  1  Initialization: Declaramos nuestro estado o propiedades
+  2  Mounting: Todo componente debe tener render. Es obligatorio.
+      1 componentWillMount
+      2 render
+      3 componentDidMount
+  3  Updation
+    Props
+      1 componentWillReceiveProps
+      2 shouldComponentUpdate
+      3 componentWillUpdate
+      4 render
+      5 componentDidUpdate
+    States
+      1 shouldComponentUpdate
+      2 componentWillUpdate
+      3 render
+      4 componentDidUpdate
+  4  Unmounting: Solo hay una función en caso de que queramos hacer algo cuando se destruya un componente
+      - componentWillUnmount
+
+Los cuatro pilares de Redux son:
+
+    Store: Almacenamiento
+    Reducers: Estados
+    Action Creators: Funciones
+    Componente: Código JSX
+
+USAR REDUX CON REACT
+- npm i redux react-redux
+
+STORE
+El store tiene las siguientes responsabilidades:
+
+  Contiene el estado de la aplicación
+  Permite el acceso al estado vía getState()
+  Permite que el estado sea actualizado vía dispatch(action)
+  Registra los listeners vía subscribe(listener)
+  Maneja la anuliación del registro de los listeners via el retorno de la función de subscribe(listener)
+
+PROVIDER
+El Provider es el componente de Redux en el cual encerraremos nuestra aplicación para que puedan comunicarse los componentes entre ellos y tener acceso al store. 
+
+REDUCERS
+Los reducers son funciones puras que reciben como parámetros, el estado inicial y una acción
+
+REDUX-THUNK
+Redux Thunk permite a las action creators invertir el control despachando funciones. Van a recibir dispatch como argumento y capaz llamarlo asíncronamente. Estas funciones son llamadas thunks.
+
+- npm install redux-thunk
+
+RECOMENDACIONES PARA USAR REDUX
+Archivos Types
+
+Consiste en la buena práctica de establecer constantes para definir el nombre de las acciones involucradas en los actions y los reducers.
+Se establece un directorio llamado types el cual contendrá archivos JS que exportarán diferentes constantes.
+
+Bloques try/catch
+try permite definir un bloque de código para que se analice en busca de errores mientras se ejecuta.
+
+catch permite definir un bloque de código para ejecutarse, si se produce un error en el bloque try.
